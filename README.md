@@ -11,11 +11,21 @@ This script uses Drive API to download files from Google drive. Below are the pr
        Detailed instructions are given here: https://developers.google.com/workspace/guides/create-project.
 
 Run the script in your command prompt as:
-    python downloadFileFromGoogleDrive.py
+    python downloadFilesFromGoogleDrive.py
 
 This program uses a simple mechanism to ask user to enter File_ID (and File name with which downloaded file will be stored) and download it in current directory.
     
 # Test Cases:
+
+This script provides support for below test scenarios:
+1. Download a File by providing File ID as input to the program.
+2. Download a File by providing File ID and directory to save the doenloaded file as input to program. 
+     - Provide a directory that exists 
+     - Provide a directory that doesn't exist.
+3. Download a file when file with same name already exists in current or user specified directory.
+4. Download all files present in Google drive.
+
+Below are the scenarios where program is most likely to break. Scenarios that a program should provide support for:
 
 1. Enter Invalid/Non existent file ID.
     - Observed behaviour: This program will throw an "http error 404: File not found" and terminate if invalid File ID is provided.
@@ -40,13 +50,13 @@ This program uses a simple mechanism to ask user to enter File_ID (and File name
 5. Specify multiple File IDs when program prompts for the File IDs and try to download multiple Files.
    - Observed behaviour: This scipt considers provided multiple File Ids as one single File ID and terminates the program with invalid File ID error.
    - Expected : Script should have support to download multiple Files at a time. For ex. Specify space separated list of File IDs and script will download all those files.
+ 
+6. Provide support for downloading all Google drive files at once.
 
 
 ## Improvements that can be done in Program:
 
-1. Provide support for downloading all Google drive files at once.
+1. Provide support for advance search queries like when use wants to download all txt files or all pdf files stored on drive.
 
-2. Provide support for advance search queries like when use wants to download all txt files or all pdf files stored on drive.
-
-3. Show Download progress. This will help while downloading larger files.
+2. Show Download progress. This will help while downloading larger files.
 
